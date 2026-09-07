@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+
+  /* Brand palette — matches the rwaShift application (frontend/tailwind.config.ts) */
+  --ink-900: #12192a;
+  --ink-800: #1c2637;
+  --ink-600: #3f5170;
+  --ink-400: #7488a8;
+  --ink-200: #c9d3e0;
+
+  --brand-900: #182c5f;
+  --brand-700: #1d3f93;
+  --brand-600: #234fb8;
+  --brand-500: #2f66df;
+  --brand-100: #dce8fe;
+  --brand-50: #eef4ff;
+
+  --gold-700: #7a570c;
+  --gold-500: #c08d13;
+  --gold-300: #e9c247;
+  --gold-100: #faedc0;
+
+  --surface: #ffffff;
+  --surface-subtle: #f7f8fa;
+  --surface-muted: #eef0f3;
+  --surface-border: #e1e4ea;
+
+  --navy: #0e1430;
+}
+
+@theme inline {
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-600: var(--ink-600);
+  --color-ink-400: var(--ink-400);
+  --color-ink-200: var(--ink-200);
+
+  --color-brand-900: var(--brand-900);
+  --color-brand-700: var(--brand-700);
+  --color-brand-600: var(--brand-600);
+  --color-brand-500: var(--brand-500);
+  --color-brand-100: var(--brand-100);
+  --color-brand-50: var(--brand-50);
+
+  --color-gold-700: var(--gold-700);
+  --color-gold-500: var(--gold-500);
+  --color-gold-300: var(--gold-300);
+  --color-gold-100: var(--gold-100);
+
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-border: var(--surface-border);
+
+  --color-navy: var(--navy);
+
+  --font-sans: var(--font-inter);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--surface-subtle);
+  color: var(--ink-800);
+}
+
+::selection {
+  background: var(--brand-100);
+  color: var(--ink-900);
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--brand-500);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
