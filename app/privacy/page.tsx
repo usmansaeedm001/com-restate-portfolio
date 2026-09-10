@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { CONTACT } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Privacy Policy",
   description: "How rwaShift collects, uses and protects information submitted through this website.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

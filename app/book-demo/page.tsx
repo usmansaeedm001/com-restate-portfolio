@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { DemoForm } from "@/components/forms/demo-form";
 import { COMPLIANCE } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Book a Demo",
   description: "Talk to the rwaShift team about your asset, your structure and what you're trying to launch.",
-};
+  path: "/book-demo",
+});
 
 export default function BookDemoPage() {
   return (

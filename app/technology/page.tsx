@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
 import { CTA } from "@/content/site";
 import { TECH_STACK, NETWORK_ENVIRONMENTS, CONTRACT_ISOLATION, SECURITY_PRINCIPLES } from "@/content/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Technology",
   description:
     "The architecture behind rwaShift Real Estate — application stack, network environments, contract isolation and security engineering principles.",
-};
+  path: "/technology",
+});
 
 export default function TechnologyPage() {
   return (

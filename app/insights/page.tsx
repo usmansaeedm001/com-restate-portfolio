@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
 import { Container } from "@/components/ui/container";
 import { INSIGHTS } from "@/content/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Insights",
   description: "Notes on real estate tokenization, legal structuring and blockchain infrastructure from the rwaShift team.",
-};
+  path: "/insights",
+});
 
 export default function InsightsPage() {
   return (

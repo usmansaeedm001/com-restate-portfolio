@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { CONTACT } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata = pageMetadata({
+  title: "Contact",
+  description: "Get in touch with the rwaShift team for product questions, partnerships or support.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

@@ -4,7 +4,8 @@ import { PageHero } from "@/components/sections/page-hero";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
 import { INSIGHTS } from "@/content/data";
-import { CTA } from "@/content/site";
+import { CTA, SITE_NAME, SITE_URL } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return INSIGHTS.map((post) => ({ slug: post.slug }));
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = INSIGHTS.find((p) => p.slug === slug);
   if (!post) return {};
-  return { title: post.title, description: post.excerpt };
+  return pageMetadata({ title: post.title, description: post.excerpt, path: `/insights/${post.slug}` });
 }
 
 export default async function InsightPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,8 +23,20 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
   const post = INSIGHTS.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    articleSection: post.category,
+    author: { "@type": "Organization", name: SITE_NAME },
+    publisher: { "@type": "Organization", name: SITE_NAME },
+    mainEntityOfPage: `${SITE_URL}/insights/${post.slug}`,
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <PageHero eyebrow={post.category} title={post.title} description={post.excerpt} />
       <section className="py-16 sm:py-20">
         <Container className="max-w-2xl">

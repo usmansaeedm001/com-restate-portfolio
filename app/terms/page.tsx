@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
 import { CONTACT, COMPLIANCE } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = { title: "Terms of Service", description: "The terms governing use of the rwaShift website." };
+export const metadata = pageMetadata({
+  title: "Terms of Service",
+  description: "The terms governing use of the rwaShift website.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

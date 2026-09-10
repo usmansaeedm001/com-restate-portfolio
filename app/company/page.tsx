@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
 import { CTA } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Company",
   description: "rwaShift builds the technology platform that lets real estate businesses structure, offer and administer tokenized investment offerings.",
-};
+  path: "/company",
+});
 
 const PRINCIPLES = [
   { title: "Business Model Before Blockchain", description: "Technology follows the economics and legal structure of the underlying asset, not the other way around." },

@@ -1,0 +1,28 @@
+# rwaShift
+
+> rwaShift builds the technology infrastructure that enables asset owners and investment businesses to structure real-world assets into digital investment offerings — with investor eligibility, compliance controls and on-chain ownership built in. The flagship product, rwaShift Real Estate, is the platform for structuring, offering and administering tokenized real estate.
+
+rwaShift is technology infrastructure, not a marketplace, exchange, or source of legal, tax or investment advice. Tokenization does not automatically create liquidity, and a digital asset unit typically represents an interest in a legal entity (such as an SPV) that holds the asset, not direct title to the physical asset itself.
+
+## Product
+
+- [Product overview](https://rwashift.com/product): rwaShift Real Estate platform capabilities, the ten-stage asset lifecycle from asset assessment to reporting, who the platform is built for, and frequently asked questions about RWA tokenization.
+- [Technology](https://rwashift.com/technology): Application stack (Next.js, Spring Boot, Solidity/Foundry/OpenZeppelin, MySQL), network environments, per-asset smart contract isolation architecture, and security engineering principles.
+
+## Company
+
+- [Company](https://rwashift.com/company): About rwaShift and its operating principles — business model before blockchain, compliance by design, asset-level isolation, transparent ownership infrastructure.
+- [Contact](https://rwashift.com/contact): How to reach the team.
+- [Book a demo](https://rwashift.com/book-demo): Request a live product demonstration.
+
+## Insights
+
+- [What Actually Gets Tokenized in Real Estate?](https://rwashift.com/insights/what-actually-gets-tokenized-in-real-estate): The asset itself is not put on-chain — what's represented is a defined legal and economic interest, and the legal structure comes before the technology.
+- [Why Tokenizing an Asset Is More Than Issuing an ERC-20](https://rwashift.com/insights/why-tokenizing-an-asset-is-more-than-issuing-an-erc-20): Real infrastructure requires offering logic, investor eligibility, ownership records and distribution workflows, not just a token contract.
+- [SPVs, Digital Tokens and Legal Ownership Explained](https://rwashift.com/insights/spvs-digital-tokens-and-legal-ownership-explained): How a special purpose vehicle relates to a digitally issued asset unit.
+- [How Investor Eligibility Works in RWA Tokenization](https://rwashift.com/insights/how-investor-eligibility-works-in-rwa-tokenization): Verifying investor eligibility before capital moves, not after.
+
+## Legal
+
+- [Privacy Policy](https://rwashift.com/privacy)
+- [Terms of Service](https://rwashift.com/terms)

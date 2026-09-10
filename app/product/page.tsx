@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ProductPreview } from "@/components/sections/product-preview";
@@ -6,16 +5,29 @@ import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
 import { CTA } from "@/content/site";
 import { PRODUCT_SECTIONS, JOURNEY_STAGES, CUSTOMER_SEGMENTS, FAQ_ITEMS } from "@/content/data";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "rwaShift Real Estate",
   description:
     "rwaShift Real Estate is the technology platform for structuring, offering and administering tokenized real-world assets — from asset creation through investor eligibility, investment, ownership and distributions.",
+  path: "/product",
+});
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
 };
 
 export default function ProductPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageHero
         eyebrow="Product"
         title="rwaShift Real Estate"
