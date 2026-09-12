@@ -103,6 +103,7 @@ export default function TechnologyPage() {
         title="Talk to Us About the Technical Details"
         description="A conversation with the team behind the platform architecture."
         primary={CTA.demo}
+        secondary={CTA.launchApp}
       />
     </>
   );

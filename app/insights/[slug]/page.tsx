@@ -56,7 +56,12 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
           </div>
         </Container>
       </section>
-      <CTASection title="Tokenizing a Real Estate Asset?" description="Talk to the team about your asset and structure." primary={CTA.demo} />
+      <CTASection
+        title="Tokenizing a Real Estate Asset?"
+        description="Talk to the team about your asset and structure."
+        primary={CTA.demo}
+        secondary={CTA.launchApp}
+      />
     </>
   );
 }

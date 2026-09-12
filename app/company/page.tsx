@@ -60,6 +60,7 @@ export default function CompanyPage() {
         title="Tokenizing a Real Estate Asset?"
         description="Talk to the team about your asset, your structure and what you're trying to launch."
         primary={CTA.demo}
+        secondary={CTA.launchApp}
       />
     </>
   );

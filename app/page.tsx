@@ -126,7 +126,7 @@ export default function HomePage() {
         title="Tokenizing a Real Estate Asset? Don't Start From Zero."
         description="Talk to the team behind the platform about your asset, your structure and what you're trying to launch."
         primary={CTA.demo}
-        secondary={CTA.exploreProduct}
+        secondary={CTA.launchApp}
       />
     </>
   );
