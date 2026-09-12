@@ -35,7 +35,7 @@ export default function ProductPage() {
         title="rwaShift Real Estate"
         description="From real-world asset to digital investment. rwaShift Real Estate is the technology platform for structuring, offering and administering tokenized real estate."
         primary={CTA.demo}
-        secondary={{ label: "See How It Works", href: "#how-it-works" }}
+        secondary={CTA.launchApp}
         visual={<ProductPreview />}
       />
 
