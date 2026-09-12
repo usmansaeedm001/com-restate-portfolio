@@ -10,7 +10,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-surface-border bg-surface/90 backdrop-blur">
       <Container className="relative flex h-16 items-center justify-between">
         <Link href="/" aria-label="rwaShift home">
-          <Logo />
+          <Logo hideWordmarkOnMobile />
         </Link>
         <nav className="hidden items-center gap-7 md:flex">
           {PRIMARY_NAV.map((item) => (
@@ -23,11 +23,16 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
-          <Button href={CTA.launchApp.href} variant="secondary" className="hidden text-[13.5px] sm:inline-flex">
-            {CTA.launchApp.label}
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Button
+            href={CTA.launchApp.href}
+            variant="secondary"
+            className="px-3 py-2 text-[13px] sm:px-5 sm:py-2.5 sm:text-[13.5px]"
+          >
+            <span className="sm:hidden">Explore</span>
+            <span className="hidden sm:inline">{CTA.launchApp.label}</span>
           </Button>
-          <Button href={CTA.demo.href} className="text-[13.5px]">
+          <Button href={CTA.demo.href} className="px-3 py-2 text-[13px] sm:px-5 sm:py-2.5 sm:text-[13.5px]">
             {CTA.demo.label}
           </Button>
           <MobileNav />
