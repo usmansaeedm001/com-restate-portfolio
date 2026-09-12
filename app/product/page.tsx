@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/sections/section-heading";
 import { ProductPreview } from "@/components/sections/product-preview";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
+import { Button } from "@/components/ui/button";
 import { CTA } from "@/content/site";
 import { PRODUCT_SECTIONS, JOURNEY_STAGES, CUSTOMER_SEGMENTS, FAQ_ITEMS } from "@/content/data";
 import { pageMetadata } from "@/lib/seo";
@@ -78,6 +79,17 @@ export default function ProductPage() {
               </div>
             ))}
           </div>
+          <div className="mt-6 flex flex-col items-start justify-between gap-4 rounded-xl border border-surface-border bg-surface-subtle p-5 sm:flex-row sm:items-center">
+            <div>
+              <p className="text-[14.5px] font-semibold text-ink-900">See this journey in the platform</p>
+              <p className="mt-1 text-[13.5px] leading-relaxed text-ink-600">
+                Walk through a live sample asset — no account required.
+              </p>
+            </div>
+            <Button href={CTA.launchApp.href} variant="secondary" className="shrink-0">
+              {CTA.launchApp.label}
+            </Button>
+          </div>
         </Container>
       </section>
 
@@ -115,6 +127,7 @@ export default function ProductPage() {
         title="Request a Live Demo"
         description="See how rwaShift Real Estate structures, offers and administers a tokenized real estate asset end to end."
         primary={CTA.demo}
+        secondary={CTA.launchApp}
       />
     </>
   );

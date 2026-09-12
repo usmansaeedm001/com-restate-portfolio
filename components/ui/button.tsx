@@ -5,6 +5,7 @@ type ButtonProps = {
   href: string;
   variant?: "primary" | "secondary" | "ghost";
   className?: string;
+  onClick?: () => void;
   children: React.ReactNode;
 };
 
@@ -14,11 +15,12 @@ const variants = {
   ghost: "text-ink-800 hover:text-brand-700",
 };
 
-export function Button({ href, variant = "primary", className, children }: ButtonProps) {
+export function Button({ href, variant = "primary", className, onClick, children }: ButtonProps) {
   const isExternal = href.startsWith("http");
   return (
     <Link
       href={href}
+      onClick={onClick}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
       className={cn(
