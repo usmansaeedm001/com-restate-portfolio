@@ -20,7 +20,6 @@ export default function HomePage() {
         description="rwaShift builds the technology infrastructure that enables asset owners and investment businesses to structure real-world assets into digital investment offerings — with investor eligibility, compliance controls and on-chain ownership built in."
         primary={CTA.demo}
         secondary={CTA.howItWorks}
-        note={CTA.launchApp}
         visual={<ProductPreview />}
       />
 
