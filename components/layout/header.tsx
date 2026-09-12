@@ -24,9 +24,9 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link href={CTA.launchApp.href} className="hidden text-[14px] font-medium text-ink-600 hover:text-ink-900 sm:inline-block">
+          <Button href={CTA.launchApp.href} variant="secondary" className="hidden text-[13.5px] sm:inline-flex">
             {CTA.launchApp.label}
-          </Link>
+          </Button>
           <Button href={CTA.demo.href} className="text-[13.5px]">
             {CTA.demo.label}
           </Button>

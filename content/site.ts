@@ -32,7 +32,7 @@ export const FOOTER_NAV: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "Book a Demo", href: "/book-demo" },
       { label: "Contact", href: "/contact" },
-      { label: "Launch App", href: APP_URL },
+      { label: "Explore the Platform", href: APP_URL },
     ],
   },
   {
@@ -49,7 +49,7 @@ export const CTA = {
   exploreProduct: { label: "Explore the Product", href: "/product" },
   howItWorks: { label: "See How It Works", href: "/product#how-it-works" },
   contact: { label: "Contact Us", href: "/contact" },
-  launchApp: { label: "Launch App", href: APP_URL },
+  launchApp: { label: "Explore the Platform", href: APP_URL },
 } as const;
 
 export const CONTACT = {

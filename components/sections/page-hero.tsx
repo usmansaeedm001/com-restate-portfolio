@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 
@@ -9,6 +10,7 @@ export function PageHero({
   description,
   primary,
   secondary,
+  note,
   visual,
 }: {
   eyebrow: string;
@@ -16,6 +18,7 @@ export function PageHero({
   description: string;
   primary?: CTA;
   secondary?: CTA;
+  note?: { label: string; href: string };
   visual?: React.ReactNode;
 }) {
   return (
@@ -36,6 +39,15 @@ export function PageHero({
                 </Button>
               )}
             </div>
+          )}
+          {note && (
+            <p className="mt-4 text-[13.5px] text-ink-400">
+              or{" "}
+              <Link href={note.href} className="font-medium text-brand-700 hover:text-brand-900">
+                {note.label}
+              </Link>{" "}
+              — no sign-in needed
+            </p>
           )}
         </div>
         {visual && <div>{visual}</div>}
