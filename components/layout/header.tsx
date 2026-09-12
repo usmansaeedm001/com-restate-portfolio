@@ -8,27 +8,8 @@ import { PRIMARY_NAV, CTA } from "@/content/site";
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-surface-border bg-surface/90 backdrop-blur">
-      <Container className="py-3 sm:flex sm:h-16 sm:items-center sm:justify-between sm:py-0">
-        {/* Mobile: logo + menu on top, both full CTAs stacked below */}
-        <div className="flex flex-col gap-3 sm:hidden">
-          <div className="flex items-center justify-between">
-            <Link href="/" aria-label="rwaShift home">
-              <Logo />
-            </Link>
-            <MobileNav />
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <Button href={CTA.launchApp.href} variant="secondary" className="w-full justify-center px-3 py-2 text-[13px]">
-              {CTA.launchApp.label}
-            </Button>
-            <Button href={CTA.demo.href} className="w-full justify-center px-3 py-2 text-[13px]">
-              {CTA.demo.label}
-            </Button>
-          </div>
-        </div>
-
-        {/* Tablet/desktop: single row */}
-        <Link href="/" aria-label="rwaShift home" className="hidden sm:block">
+      <Container className="flex h-16 items-center justify-between">
+        <Link href="/" aria-label="rwaShift home">
           <Logo />
         </Link>
         <nav className="hidden items-center gap-7 md:flex">
@@ -42,8 +23,8 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <div className="hidden items-center gap-3 sm:flex">
-          <Button href={CTA.launchApp.href} variant="secondary" className="text-[13.5px]">
+        <div className="flex items-center gap-3">
+          <Button href={CTA.launchApp.href} variant="secondary" className="hidden text-[13.5px] sm:inline-flex">
             {CTA.launchApp.label}
           </Button>
           <Button href={CTA.demo.href} className="text-[13.5px]">
@@ -52,6 +33,16 @@ export function Header() {
           <MobileNav />
         </div>
       </Container>
+      <div className="border-t border-surface-border bg-surface-subtle/70 py-1.5 sm:hidden">
+        <Container>
+          <p className="text-center text-[12.5px] text-ink-500">
+            <Link href={CTA.launchApp.href} className="font-medium text-brand-700 hover:text-brand-900">
+              {CTA.launchApp.label}
+            </Link>{" "}
+            — no sign-in needed
+          </p>
+        </Container>
+      </div>
     </header>
   );
 }
