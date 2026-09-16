@@ -4,6 +4,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ProductPreview } from "@/components/sections/product-preview";
 import { AlternatingSteps } from "@/components/sections/alternating-steps";
+import { TrustBadges } from "@/components/sections/trust-badges";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
 import { TAGLINE, CTA } from "@/content/site";
@@ -29,6 +30,8 @@ export default function HomePage() {
         secondary={CTA.howItWorks}
         visual={<ProductPreview />}
       />
+
+      <TrustBadges />
 
       {/* Business problem */}
       <section className="border-b border-surface-border bg-surface-subtle py-20 sm:py-24">
