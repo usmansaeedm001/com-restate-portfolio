@@ -70,7 +70,7 @@ export function AlternatingSteps({ steps }: { steps: PersonaStep[] }) {
           className="pointer-events-none absolute inset-0 hidden h-full w-full md:block"
           aria-hidden="true"
         >
-          <path d={smoothPath(points)} fill="none" stroke="var(--color-surface-border)" strokeWidth="1.5" />
+          <path d={smoothPath(points)} fill="none" stroke="var(--color-brand-700)" strokeWidth="2" strokeOpacity="0.35" />
         </svg>
       )}
       {steps.map((step, i) => {
