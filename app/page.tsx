@@ -3,13 +3,20 @@ import { ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ProductPreview } from "@/components/sections/product-preview";
+import { AlternatingSteps } from "@/components/sections/alternating-steps";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
 import { TAGLINE, CTA } from "@/content/site";
-import { CUSTOMER_PROBLEMS, CUSTOMER_SEGMENTS, PRODUCT_SECTIONS } from "@/content/data";
+import { CUSTOMER_PROBLEMS, CUSTOMER_SEGMENTS, PRODUCT_SECTIONS, ISSUER_STEPS, INVESTOR_STEPS, ADMIN_STEPS } from "@/content/data";
 import { INSIGHTS } from "@/content/data";
 
 const FLOW = ["Real Asset", "Legal Structure / SPV", "Investor Rights", "Compliance", "Token", "Distribution", "Settlement"];
+
+const ROLE_TEASER_STEPS = [
+  { ...ISSUER_STEPS[1], number: 1, kicker: "Issuer" },
+  { ...INVESTOR_STEPS[2], number: 2, kicker: "Investor" },
+  { ...ADMIN_STEPS[0], number: 3, kicker: "Platform Admin" },
+];
 
 export default function HomePage() {
   return (
@@ -86,13 +93,33 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Who we build for */}
+      {/* One platform, every role */}
       <section className="border-b border-surface-border bg-surface py-20 sm:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="How It Works"
+            title="One Platform, Built Around Every Role"
+            description="A quick look at what the issuer, the investor and the platform admin each see inside rwaShift Real Estate."
+          />
+          <AlternatingSteps steps={ROLE_TEASER_STEPS} />
+          <div className="mt-10">
+            <Link
+              href="/product#how-it-works"
+              className="inline-flex items-center gap-1.5 text-[14px] font-medium text-brand-700 hover:text-brand-900"
+            >
+              See the full walkthrough for every role <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* Who we build for */}
+      <section className="border-b border-surface-border bg-surface-subtle py-20 sm:py-24">
         <Container>
           <SectionHeading eyebrow="Who We Build For" title="Built for the Businesses Behind the Asset" />
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {CUSTOMER_SEGMENTS.map((c) => (
-              <div key={c.name} className="rounded-xl border border-surface-border bg-surface-subtle p-5">
+              <div key={c.name} className="rounded-xl border border-surface-border bg-surface p-5">
                 <p className="text-[15px] font-semibold text-ink-900">{c.name}</p>
                 <p className="mt-1.5 text-[13.5px] leading-relaxed text-ink-600">{c.outcome}</p>
               </div>
@@ -102,7 +129,7 @@ export default function HomePage() {
       </section>
 
       {/* Insights */}
-      <section className="border-b border-surface-border bg-surface-subtle py-20 sm:py-24">
+      <section className="border-b border-surface-border bg-surface py-20 sm:py-24">
         <Container>
           <SectionHeading eyebrow="Insights" title="From the Team" />
           <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -110,7 +137,7 @@ export default function HomePage() {
               <Link
                 key={post.slug}
                 href={`/insights/${post.slug}`}
-                className="rounded-xl border border-surface-border bg-surface p-5 transition-colors hover:border-ink-400"
+                className="rounded-xl border border-surface-border bg-surface-subtle p-5 transition-colors hover:border-ink-400"
               >
                 <p className="text-[12px] font-medium uppercase tracking-wide text-gold-700">{post.category}</p>
                 <p className="mt-2 text-[15px] font-semibold leading-snug text-ink-900">{post.title}</p>

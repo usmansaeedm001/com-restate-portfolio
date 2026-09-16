@@ -1,12 +1,11 @@
-import { Fragment } from "react";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { ProductPreview } from "@/components/sections/product-preview";
+import { AlternatingSteps } from "@/components/sections/alternating-steps";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 import { CTA } from "@/content/site";
-import { PRODUCT_SECTIONS, JOURNEY_STAGES, CUSTOMER_SEGMENTS, FAQ_ITEMS } from "@/content/data";
+import { PRODUCT_SECTIONS, CUSTOMER_SEGMENTS, FAQ_ITEMS, ISSUER_STEPS, INVESTOR_STEPS, ADMIN_STEPS } from "@/content/data";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -58,51 +57,35 @@ export default function ProductPage() {
         </Container>
       </section>
 
-      {/* How it works */}
-      <section id="how-it-works" className="scroll-mt-20 border-b border-surface-border bg-surface py-20 sm:py-24">
+      {/* How it works, by role */}
+      <section id="how-it-works" className="scroll-mt-20 border-b border-surface-border bg-surface py-16 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow="How It Works"
-            title="From Real-World Asset to Digital Investment"
-            description="A ten-stage journey spanning business decisions and platform activity — from initial asset assessment through ongoing reporting and verification."
+            title="One Platform, Built Around Every Role"
+            description="From the issuer structuring an offering to the investor participating in it to the administrator keeping it compliant — see how each role moves through rwaShift Real Estate."
           />
-          <div className="mt-10 flex flex-col divide-y divide-surface-border rounded-xl border border-surface-border bg-surface-subtle">
-            {JOURNEY_STAGES.map((s, i) => (
-              <Fragment key={s.stage}>
-                <div className="grid grid-cols-1 gap-3 p-5 sm:grid-cols-[3rem_1fr_1fr]">
-                  <span className="font-mono text-[13px] text-ink-400">{s.stage}</span>
-                  <div>
-                    <p className="text-[14.5px] font-semibold text-ink-900">{s.title}</p>
-                    <p className="mt-1 text-[13.5px] leading-relaxed text-ink-600">{s.business}</p>
-                  </div>
-                  <p className="text-[13.5px] leading-relaxed text-ink-600 sm:border-l sm:border-surface-border sm:pl-4">
-                    {s.technology}
-                  </p>
-                </div>
-                {i === Math.floor(JOURNEY_STAGES.length / 2) - 1 && (
-                  <div className="flex flex-col items-start justify-between gap-3 bg-surface p-5 sm:flex-row sm:items-center">
-                    <p className="text-[13.5px] leading-relaxed text-ink-600">
-                      Halfway there — see these stages live in the platform, no account required.
-                    </p>
-                    <Button href={CTA.launchApp.href} variant="secondary" className="shrink-0">
-                      {CTA.launchApp.label}
-                    </Button>
-                  </div>
-                )}
-              </Fragment>
-            ))}
-          </div>
-          <div className="mt-6 flex flex-col items-start justify-between gap-4 rounded-xl border border-surface-border bg-surface-subtle p-5 sm:flex-row sm:items-center">
-            <div>
-              <p className="text-[14.5px] font-semibold text-ink-900">See this journey in the platform</p>
-              <p className="mt-1 text-[13.5px] leading-relaxed text-ink-600">
-                Walk through a live sample asset — no account required.
-              </p>
-            </div>
-            <Button href={CTA.launchApp.href} variant="secondary" className="shrink-0">
-              {CTA.launchApp.label}
-            </Button>
-          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-surface-border bg-surface-subtle py-20 sm:py-24">
+        <Container>
+          <SectionHeading eyebrow="For Issuers" title="Structure, Launch and Administer an Offering" />
+          <AlternatingSteps steps={ISSUER_STEPS} />
+        </Container>
+      </section>
+
+      <section className="border-b border-surface-border bg-surface py-20 sm:py-24">
+        <Container>
+          <SectionHeading eyebrow="For Investors" title="From Eligibility to Ownership" />
+          <AlternatingSteps steps={INVESTOR_STEPS} />
+        </Container>
+      </section>
+
+      <section className="border-b border-surface-border bg-surface py-20 sm:py-24">
+        <Container>
+          <SectionHeading eyebrow="For Platform Admins" title="Compliance and Oversight, Built In" />
+          <AlternatingSteps steps={ADMIN_STEPS} />
         </Container>
       </section>
 

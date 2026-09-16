@@ -30,7 +30,8 @@ export const PRODUCT_SECTIONS = [
   { title: "Asset Lifecycle", description: "Manage the asset from creation through active offering, funding and ongoing administration." },
 ] as const;
 
-// 10-stage journey (shown inside the Product page)
+// 10-stage journey (superseded on the Product page by the persona walkthroughs below,
+// kept here as it's still referenced for the underlying lifecycle detail)
 export const JOURNEY_STAGES = [
   { stage: "01", title: "Asset Assessment", business: "Evaluate the asset, ownership structure and business case for a digital offering.", technology: "Platform onboarding and asset profile configuration begin." },
   { stage: "02", title: "Structure & Offering Design", business: "Define valuation, capital target, unit economics and the applicable legal structure alongside qualified counsel.", technology: "Offering parameters are modeled within rwaShift Real Estate." },
@@ -43,6 +44,96 @@ export const JOURNEY_STAGES = [
   { stage: "09", title: "Distributions", business: "Determine distribution timing and amounts per the offering terms.", technology: "Distribution management tools allocate and record payments to eligible unit holders." },
   { stage: "10", title: "Reporting & Verification", business: "Provide investors and stakeholders with ongoing visibility into the asset.", technology: "Blockchain verification and reporting tools expose transparent, auditable records." },
 ] as const;
+
+// Persona walkthroughs (alternating-layout visual sections on Product and homepage)
+export type PersonaStep = {
+  number: number;
+  title: string;
+  description: string;
+  image: { src: string; alt: string };
+  kicker?: string;
+};
+
+export const ISSUER_STEPS: PersonaStep[] = [
+  {
+    number: 1,
+    title: "Tokenize the Asset",
+    description: "Digitize a real estate asset into a structured digital offering — configure asset details, valuation and unit economics in a guided setup.",
+    image: { src: "/screenshots/issuer/01-tokenize-asset.png", alt: "Asset tokenization setup screen in rwaShift Real Estate" },
+  },
+  {
+    number: 2,
+    title: "Configure & Launch the Offering",
+    description: "Set capital targets, unit pricing and minimum investment, then launch the offering to eligible investors.",
+    image: { src: "/screenshots/issuer/02-configure-offering.png", alt: "Offering configuration screen in rwaShift Real Estate" },
+  },
+  {
+    number: 3,
+    title: "Track the Offering",
+    description: "Monitor capital raised, investor activity and offering status from a single operating dashboard.",
+    image: { src: "/screenshots/issuer/03-offering-dashboard.png", alt: "Offering dashboard in rwaShift Real Estate" },
+  },
+  {
+    number: 4,
+    title: "Manage Distributions",
+    description: "Create and manage distributions to unit holders as the asset generates returns.",
+    image: { src: "/screenshots/issuer/04-distributions.png", alt: "Distribution management screen in rwaShift Real Estate" },
+  },
+];
+
+export const INVESTOR_STEPS: PersonaStep[] = [
+  {
+    number: 1,
+    title: "Browse Eligible Offerings",
+    description: "Explore active offerings matched to your eligibility and investment criteria.",
+    image: { src: "/screenshots/investor/01-browse-offerings.png", alt: "Offering listing screen for investors in rwaShift Real Estate" },
+  },
+  {
+    number: 2,
+    title: "Complete Eligibility Verification",
+    description: "Confirm identity and accreditation through a guided KYC and eligibility check before investing.",
+    image: { src: "/screenshots/investor/02-eligibility-check.png", alt: "Investor eligibility verification screen in rwaShift Real Estate" },
+  },
+  {
+    number: 3,
+    title: "Invest in an Offering",
+    description: "Commit capital to an offering within the minimum investment and unit price set by the issuer.",
+    image: { src: "/screenshots/investor/03-invest.png", alt: "Investment flow screen in rwaShift Real Estate" },
+  },
+  {
+    number: 4,
+    title: "Track Your Portfolio",
+    description: "View holdings, investment history and distributions from a single investor portfolio.",
+    image: { src: "/screenshots/investor/04-portfolio.png", alt: "Investor portfolio screen in rwaShift Real Estate" },
+  },
+];
+
+export const ADMIN_STEPS: PersonaStep[] = [
+  {
+    number: 1,
+    title: "Review the Compliance Queue",
+    description: "Review incoming KYC and eligibility requests before an investor is permitted to participate.",
+    image: { src: "/screenshots/admin/01-compliance-queue.png", alt: "Compliance review queue in rwaShift Real Estate" },
+  },
+  {
+    number: 2,
+    title: "Approve or Reject Investors",
+    description: "Apply eligibility and compliance rules to approve, reject or request more information from an investor.",
+    image: { src: "/screenshots/admin/02-investor-approval.png", alt: "Investor approval screen in rwaShift Real Estate" },
+  },
+  {
+    number: 3,
+    title: "Oversee Assets & Offerings",
+    description: "Monitor every asset and offering on the platform from a consolidated administrative view.",
+    image: { src: "/screenshots/admin/03-asset-oversight.png", alt: "Asset oversight dashboard in rwaShift Real Estate" },
+  },
+  {
+    number: 4,
+    title: "Verify the Audit Trail",
+    description: "Review transparent, on-chain records of platform and investor activity for reporting and audit.",
+    image: { src: "/screenshots/admin/04-audit-trail.png", alt: "Audit trail and on-chain verification screen in rwaShift Real Estate" },
+  },
+];
 
 // Technology
 export const TECH_STACK = [
