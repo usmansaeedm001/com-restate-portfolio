@@ -23,7 +23,7 @@ export function AlternatingSteps({ steps }: { steps: PersonaStep[] }) {
               <p className="text-[15px] font-semibold text-ink-900">{step.title}</p>
               <p className="mt-2 text-[13.5px] leading-relaxed text-ink-600">{step.description}</p>
             </div>
-            <div className="aspect-[4/3] overflow-hidden rounded-xl border border-surface-border bg-surface-subtle shadow-sm">
+            <div className="aspect-[18/7] overflow-hidden rounded-xl border border-surface-border bg-surface-subtle shadow-sm">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={step.image.src} alt={step.image.alt} loading="lazy" className="h-full w-full object-cover" />
             </div>

@@ -1,27 +1,30 @@
 # Product screenshots
 
-Drop real screenshots here for the persona walkthrough sections (Issuer, Investor, Platform Admin).
-Each subfolder needs exactly 4 images, named as below — file extension can be `.png` or `.jpg`.
+Real screenshots of the rwaShift Real Estate app, used in the persona walkthrough sections
+(Issuer, Investor, Platform Admin) on the homepage and `/product`. Referenced directly from
+`content/data.ts` (`ISSUER_STEPS`, `INVESTOR_STEPS`, `ADMIN_STEPS`) — if you replace a file,
+keep the same filename or update the matching `image.src` there.
 
 ## issuer/
-1. `01-tokenize-asset` — asset creation / asset-class selection screen
-2. `02-configure-offering` — offering setup (valuation, capital target, unit price)
-3. `03-offering-dashboard` — live offering overview for the issuer
-4. `04-distributions` — distribution management / ongoing administration
+- `1-dashboard.png` — issuer dashboard (assets, tokenized value, capital raised, offerings)
+- `2-offerings.png` — offerings list (raise target, units issued, funded %, status)
+- `3-assets.png` — asset list (valuation, verification status)
+- `4-reports.png` — reporting charts (offering progress, capital raised vs. target)
 
 ## investor/
-1. `01-browse-offerings` — eligible offerings listing
-2. `02-eligibility-check` — KYC / investor eligibility verification
-3. `03-invest` — investment / checkout flow
-4. `04-portfolio` — investor portfolio & distributions view
+- `1-portfolio.png` — investor portfolio (total invested, active investments, units owned)
+- `2-transactions.png` — transaction history
+- `3-distributions.png` — distributions received
+- `4-activity.png` — platform activity feed
 
 ## admin/
-1. `01-compliance-queue` — whitelist / KYC review queue
-2. `02-investor-approval` — approve or reject an investor request
-3. `03-asset-oversight` — manage offerings & assets across the platform
-4. `04-audit-trail` — on-chain verification / audit trail
+- `1-dashboard.png` — platform admin dashboard (organizations, offerings, pending approvals, KYC reviews)
+- `2-compliance.png` — compliance / pending payment confirmations
+- `3-blockchain.png` — on-chain transaction status
+- `4-audit.png` — audit log
 
-## Image guidance
-- Landscape screenshots work best with the alternating layout, roughly 4:3 to 16:10.
-- Keep each file under ~500KB (compress with an online tool or `squoosh.app` if needed) so the page stays fast.
-- Crop out anything with real customer/investor data — use sample/demo data only, consistent with the "illustrative" language already used elsewhere on the site.
+## Replacing a screenshot
+- Keep the same filename, or update the corresponding `image.src` in `content/data.ts`.
+- Crop out anything that isn't sample/demo data before replacing a file.
+- Keep each file under ~500KB so the page stays fast.
+- Current screenshots are 1440×560 (~2.57:1, matching the app's actual dashboard layout). The display frame in `AlternatingSteps` is set to that same ratio (`aspect-[18/7]`) so nothing gets cropped — if a replacement image has a meaningfully different aspect ratio, update that class too.

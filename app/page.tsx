@@ -13,9 +13,9 @@ import { INSIGHTS } from "@/content/data";
 const FLOW = ["Real Asset", "Legal Structure / SPV", "Investor Rights", "Compliance", "Token", "Distribution", "Settlement"];
 
 const ROLE_TEASER_STEPS = [
-  { ...ISSUER_STEPS[1], number: 1, kicker: "Issuer" },
-  { ...INVESTOR_STEPS[2], number: 2, kicker: "Investor" },
-  { ...ADMIN_STEPS[0], number: 3, kicker: "Platform Admin" },
+  { ...ISSUER_STEPS[2], number: 1, kicker: "Issuer" },
+  { ...INVESTOR_STEPS[0], number: 2, kicker: "Investor" },
+  { ...ADMIN_STEPS[1], number: 3, kicker: "Platform Admin" },
 ];
 
 export default function HomePage() {
