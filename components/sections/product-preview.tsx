@@ -5,15 +5,13 @@ export function ProductPreview() {
         className="block aspect-video w-full bg-surface-subtle"
         src="/videos/rwashift-demo.mp4"
         poster="/videos/rwashift-demo-poster.jpg"
-        autoPlay
-        muted
-        loop
+        controls
         playsInline
         preload="metadata"
-        aria-label="rwaShift platform demo video"
+        aria-label="rwaShift platform demo video with narration"
       />
       <figcaption className="sr-only">
-        Demo video of the rwaShift platform, showing how real-world assets are structured,
+        Narrated demo video of the rwaShift platform, showing how real-world assets are structured,
         offered and administered.
       </figcaption>
     </figure>
