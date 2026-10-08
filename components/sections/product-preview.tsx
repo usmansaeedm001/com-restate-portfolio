@@ -3,8 +3,8 @@ export function ProductPreview() {
     <figure className="overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm">
       <video
         className="block aspect-video w-full bg-surface-subtle"
-        src="/videos/rwashift-demo.mp4"
-        poster="/videos/rwashift-demo-poster.jpg"
+        src="/videos/rwashift-demo-v3.mp4"
+        poster="/videos/rwashift-demo-v3-poster.jpg"
         controls
         playsInline
         preload="metadata"
