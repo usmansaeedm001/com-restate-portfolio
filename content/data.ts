@@ -191,9 +191,48 @@ export type Insight = {
   category: string;
   excerpt: string;
   sections: InsightSection[];
+  image?: { src: string; alt: string };
+  // Optional until real dates and named authors are confirmed; omitted fields are left out of the page metadata.
+  author?: string;
+  publishedAt?: string; // ISO date, e.g. "2026-11-04"
+  updatedAt?: string;
 };
 
 export const INSIGHTS: Insight[] = [
+  {
+    slug: "how-to-tokenize-real-estate",
+    title: "How to Tokenize Real Estate: From SPV Formation to Investor Settlement",
+    category: "Guide",
+    excerpt: "A step-by-step view of the ten stages a real estate asset passes through on rwaShift, from initial assessment to ongoing reporting.",
+    sections: [
+      { heading: "Why a clear sequence matters", paragraphs: [
+        "Tokenizing a property is not a single action. It is a sequence of legal, financial, operational and technical steps, and each one depends on the decisions made before it. Skipping a step, or doing it out of order, usually shows up later as a structuring problem, an eligibility gap or a reporting error.",
+        "The sequence below follows the ten stages rwaShift uses to take an asset from assessment to ongoing administration. The legal steps are handled with qualified counsel; the platform carries the resulting structure through the technical and operational stages.",
+      ]},
+      { heading: "Stage 1 to 3: prepare the asset and the structure", paragraphs: [
+        "Asset assessment (stage 1) confirms the asset, its ownership structure and whether a digital offering makes sense for the business case. Ownership has to be clear before anything else is designed.",
+        "Structure and offering design (stage 2) defines the valuation, the capital target, the unit economics and the legal structure. Often this means a special purpose vehicle (SPV) that holds the property, with investors holding defined interests in that vehicle. These choices are made alongside qualified legal counsel, because they determine what investors actually receive.",
+        "Platform configuration (stage 3) captures the asset details, supporting documentation and the operational workflows that will run after the offering closes. The asset is created in the Asset Dashboard before anything goes on-chain.",
+      ]},
+      { heading: "Stage 4 and 5: deploy the contract and set eligibility", paragraphs: [
+        "Smart contract deployment (stage 4) confirms the technical and compliance parameters, then deploys an isolated on-chain contract instance for the asset. Each asset gets its own instance, so its offering, supply, investors and distributions are contained and do not share state with other assets.",
+        "Investor onboarding (stage 5) defines who may invest. Eligibility criteria and compliance requirements are configured and then applied to every investor before they can take part. Eligibility is set up before the offering opens, not checked after money has moved.",
+      ]},
+      { heading: "Stage 6 and 7: process investments and issue units", paragraphs: [
+        "Investment processing (stage 6) opens the offering to eligible investors. Investments are processed and reconciled against the offering configuration, including the unit price, the maximum number of units and the minimum investment.",
+        "Digital ownership (stage 7) confirms each investor's participation and unit allocation. Digital asset units are issued and the ownership records are maintained on-chain, so the allocation can be checked against the platform's records.",
+      ]},
+      { heading: "Stage 8 to 10: administer, distribute and report", paragraphs: [
+        "Asset administration (stage 8) covers the day-to-day operation of the asset under the governing agreements. The platform keeps a consolidated operational record of the asset and its investors, so the administrator is working from one set of numbers.",
+        "Distributions (stage 9) follow the timing and amounts set in the offering terms. Distribution tools allocate and record payments to eligible unit holders, which gives investors a traceable history of what they received.",
+        "Reporting and verification (stage 10) gives investors and stakeholders ongoing visibility into the asset. Blockchain verification and reporting tools expose transparent, auditable records.",
+      ]},
+      { heading: "What the sequence does not solve", paragraphs: [
+        "A clear sequence does not create demand. Tokenization does not automatically create liquidity, and the value of a digital offering still depends on the asset, the structure and the investors who participate.",
+        "This article is general information about how tokenized real estate structures work. It is not legal, tax or investment advice. The right structure depends on jurisdiction and should be reviewed with qualified counsel before any offering is made.",
+      ]},
+    ],
+  },
   {
     slug: "what-actually-gets-tokenized-in-real-estate",
     title: "What Actually Gets Tokenized in Real Estate?",
@@ -204,9 +243,21 @@ export const INSIGHTS: Insight[] = [
         "A commercial property itself is not moved onto a blockchain. What gets represented digitally is a defined interest — typically ownership or economic participation in a legal entity, such as an SPV, that holds the asset.",
         "This distinction shapes everything downstream: what investors actually hold, how transfers work, and what compliance obligations apply.",
       ]},
+      { heading: "What an investor actually holds", paragraphs: [
+        "The rights an investor receives come from the legal documents behind the offering: the entity's governing agreements and the offering terms. The digital asset unit is a record of those rights. It does not create rights that the documents do not provide.",
+        "That is why the same token standard can represent very different legal positions depending on how the vehicle is structured. Two offerings with identical technology can give investors different voting, distribution or transfer rights.",
+      ]},
+      { heading: "A worked example (illustrative)", paragraphs: [
+        "Suppose a sponsor wants investors to fund a $2,000,000 share of a $10,000,000 commercial property. The property is held by an SPV. The offering divides the investor interest into 20,000 units at $100 each, with a minimum investment set in the offering terms.",
+        "On the platform, the offering records the valuation, the capital target, the unit price and the maximum number of units. As investors are approved and their investments settle, the ownership records show how many units each investor holds. These figures are illustrative and are not the terms of any real offering.",
+      ]},
       { heading: "Why the structure comes first", paragraphs: [
         "Before any digital asset unit is issued, the underlying legal structure — the entity, the offering terms, the investor eligibility rules — has to be defined with qualified legal counsel.",
         "The technology layer then reflects that structure faithfully: unit economics, transfer restrictions and distribution logic are all configured to match the legal and business model, not the other way around.",
+      ]},
+      { heading: "What tokenization does not change", paragraphs: [
+        "Tokenization does not make a property more liquid by itself. Liquidity depends on investor demand, applicable regulation and whether a compliant secondary market exists. The infrastructure can make transfers more controlled and records easier to keep, but it cannot guarantee that an investor can sell.",
+        "This article is general information, not legal, tax or investment advice. Ownership and securities treatment depend on jurisdiction.",
       ]},
     ],
   },
@@ -219,8 +270,20 @@ export const INSIGHTS: Insight[] = [
       { heading: "A token is a small part of the system", paragraphs: [
         "Issuing a standard token contract takes very little engineering effort. What makes an asset genuinely investable and administrable is everything around that contract: offering configuration, investor verification, investment processing, ownership records and distribution management.",
       ]},
+      { heading: "Offering logic is more than a supply number", paragraphs: [
+        "A real offering needs a valuation, a capital target, a unit price, a maximum number of units and a minimum investment. These values have to stay consistent across the offering, the investments that arrive and the units that are issued. A bare token contract does not enforce that relationship on its own.",
+      ]},
+      { heading: "Eligibility has to sit inside the flow", paragraphs: [
+        "Investor eligibility is part of the investment path, not an afterthought. Compliant offerings need identity, accreditation and compliance checks applied before a unit is allocated, and an operator needs a record that those checks happened.",
+      ]},
+      { heading: "Ownership records and distributions", paragraphs: [
+        "Once units are issued, someone has to keep the register of who holds what, show each investor their own holdings, and calculate and record distributions against those holdings. Those are operational workflows with their own rules, and they need to match the legal documents behind the asset.",
+      ]},
       { heading: "The stack it takes", paragraphs: [
         "A working platform needs asset structuring, digital offering infrastructure, investor eligibility, smart contracts, investment processing, ownership records, distribution infrastructure, an application layer, blockchain integration, observability and security architecture — operating together as one coherent system.",
+      ]},
+      { heading: "Where to look when evaluating a platform", paragraphs: [
+        "Ask how the offering parameters are enforced, where investor eligibility is checked, how each asset is isolated, and what audit trail exists for administrative and on-chain actions. A platform that can answer those questions in specifics is easier to assess than one that describes only the token.",
       ]},
     ],
   },
@@ -237,6 +300,16 @@ export const INSIGHTS: Insight[] = [
       { heading: "What this means for investors", paragraphs: [
         "The rights an investor actually holds — voting, distribution, transfer rights — are defined by the governing legal agreements of the SPV and the offering, not by the token itself. The token is a digital record of those rights, not a substitute for them.",
       ]},
+      { heading: "Questions to ask before investing", paragraphs: [
+        "Which entity holds the asset, and who controls it? What do the governing agreements say about distributions, voting and transfer? How is the unit register kept, and who can change it? What happens to the units if the vehicle is wound up? The answers come from the legal documents, and the platform should be able to show how its records match them.",
+      ]},
+      { heading: "How the platform reflects the structure", paragraphs: [
+        "On rwaShift, each asset runs through its own isolated contract instance, so the offering, supply, investors and distributions for one asset are kept separate from another. Ownership records and distribution history are maintained against that instance, which makes the link between the vehicle and the units easier to check.",
+      ]},
+      { heading: "A note on terminology", paragraphs: [
+        "Terms such as token, unit, share and security mean different things in different jurisdictions and documents. Use the terms the legal documents use, and confirm the classification with counsel before describing an offering to investors.",
+        "This article is general information, not legal, tax or investment advice.",
+      ]},
     ],
   },
   {
@@ -248,8 +321,46 @@ export const INSIGHTS: Insight[] = [
       { heading: "Eligibility before investment", paragraphs: [
         "Investor eligibility controls apply identity, accreditation and compliance checks required by the applicable offering structure before an investor is permitted to participate.",
       ]},
+      { heading: "What gets checked", paragraphs: [
+        "The exact checks depend on the offering. Identity verification confirms who the investor is. Accreditation or similar status checks confirm whether the investor may take part in that offering under the applicable rules. Compliance checks confirm that the investment fits the offering's terms. Which checks apply, and in which jurisdictions, is decided with counsel for each offering.",
+      ]},
       { heading: "Why this has to be built in, not bolted on", paragraphs: [
         "When eligibility logic is embedded in the platform and, where applicable, in the on-chain contract itself, an issuer has a consistent, auditable control point — rather than relying on manual review disconnected from the investment flow.",
+      ]},
+      { heading: "Review before settlement", paragraphs: [
+        "On rwaShift, administrators review and confirm payments and eligibility checks before an investment is settled. Each investment is therefore tied to a recorded decision, not just to a transfer of funds.",
+      ]},
+      { heading: "Transfers after issuance", paragraphs: [
+        "Eligibility does not stop at the first investment. Where the offering requires it, restricted-transfer logic limits who can receive units, so that a later transfer cannot put units in the hands of an investor who was never eligible. Whether transfers are allowed, and to whom, is set by the offering's legal and compliance rules.",
+        "This article is general information, not legal, tax or investment advice. Eligibility requirements vary by jurisdiction and offering.",
+      ]},
+    ],
+  },
+  {
+    slug: "real-estate-tokenization-platform-architecture",
+    title: "Real Estate Tokenization Platform Architecture",
+    category: "Technology",
+    excerpt: "How an issuer-facing dashboard, an application layer, per-asset smart contracts and audit records fit together in a tokenized real estate platform.",
+    image: {
+      src: "/screenshots/issuer/1-dashboard.png",
+      alt: "Issuer dashboard in rwaShift Real Estate showing tokenized asset value and capital raised",
+    },
+    sections: [
+      { heading: "The layers", paragraphs: [
+        "The rwaShift Real Estate platform is built from a Next.js and React front end, a Spring Boot application layer, a MySQL data store, Solidity smart contracts developed with Foundry and OpenZeppelin, and OpenTelemetry for observability. Containers are built with Docker, and the platform connects to Ethereum-compatible blockchain infrastructure.",
+        "Each layer has a defined job. The front end serves issuers, investors and administrators. The application layer handles offerings, investors and workflows. The data store keeps the operational record. The contracts hold the on-chain state for each asset.",
+      ]},
+      { heading: "One contract instance per asset", paragraphs: [
+        "A factory contract, AssetFactory, deploys an isolated contract instance for each tokenized asset. Each instance holds its own offering, supply, investor eligibility, investments, ownership, distributions and lifecycle state. A problem in one asset's contract does not change the state of another asset.",
+      ]},
+      { heading: "Environments", paragraphs: [
+        "Development runs against a local Ethereum-compatible node (Anvil). Staging uses a public test network (Ethereum Sepolia) to check contract behavior before production. The production network is configured for each implementation's requirements. Development, staging and production are kept separate.",
+      ]},
+      { heading: "Controls built into the design", paragraphs: [
+        "Platform and contract actions are scoped to defined roles, rather than broad access. Critical asset operations can be paused as a control point during an incident. Investment and distribution flows are written to guard against reentrancy. Transfers can be restricted to eligible investors where the offering requires it. Every significant platform action is recorded in an append-only audit log, searchable by resource and actor.",
+      ]},
+      { heading: "What the platform does not do", paragraphs: [
+        "rwaShift provides technology infrastructure. It is not a public marketplace or exchange, and it does not provide legal, tax or investment advice. The legal structure of each offering, and the eligibility rules that apply to it, are decided with qualified counsel and then configured in the platform.",
       ]},
     ],
   },

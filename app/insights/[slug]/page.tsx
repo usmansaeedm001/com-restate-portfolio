@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/sections/page-hero";
 import { CTASection } from "@/components/sections/cta-section";
@@ -29,8 +30,12 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
     headline: post.title,
     description: post.excerpt,
     articleSection: post.category,
-    author: { "@type": "Organization", name: SITE_NAME },
+    author: post.author
+      ? { "@type": "Person", name: post.author }
+      : { "@type": "Organization", name: SITE_NAME },
     publisher: { "@type": "Organization", name: SITE_NAME },
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt ?? post.publishedAt,
     mainEntityOfPage: `${SITE_URL}/insights/${post.slug}`,
   };
 
@@ -38,6 +43,15 @@ export default async function InsightPage({ params }: { params: Promise<{ slug: 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <PageHero eyebrow={post.category} title={post.title} description={post.excerpt} />
+      {post.image && (
+        <section className="pb-4">
+          <Container className="max-w-3xl">
+            <figure className="overflow-hidden rounded-2xl border border-surface-border bg-surface shadow-sm">
+              <Image src={post.image.src} alt={post.image.alt} width={1440} height={560} className="h-auto w-full" />
+            </figure>
+          </Container>
+        </section>
+      )}
       <section className="py-16 sm:py-20">
         <Container className="max-w-2xl">
           <div className="flex flex-col gap-10">

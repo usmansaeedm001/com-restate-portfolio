@@ -2,7 +2,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { CTASection } from "@/components/sections/cta-section";
 import { Container } from "@/components/ui/container";
-import { CTA } from "@/content/site";
+import { ADVISORS, CTA, SITE_NAME, SITE_URL, TEAM } from "@/content/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -19,8 +19,29 @@ const PRINCIPLES = [
 ];
 
 export default function CompanyPage() {
+  const teamJsonLd = TEAM.map((member) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: member.name,
+    jobTitle: member.role,
+    worksFor: { "@type": "Organization", name: SITE_NAME, url: SITE_URL },
+    ...(member.profileUrl && { sameAs: [member.profileUrl] }),
+  }));
+
+  // Advisors are not employees, so no worksFor relation is declared for them.
+  const advisorsJsonLd = ADVISORS.map((advisor) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: advisor.name,
+    jobTitle: advisor.role,
+    ...(advisor.profileUrl && { sameAs: [advisor.profileUrl] }),
+  }));
+
   return (
     <>
+      {[...teamJsonLd, ...advisorsJsonLd].map((person) => (
+        <script key={person.name} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
+      ))}
       <PageHero
         eyebrow="Company"
         title="About rwaShift"
@@ -55,6 +76,66 @@ export default function CompanyPage() {
           </div>
         </Container>
       </section>
+
+      {TEAM.length > 0 && (
+        <section className="border-b border-surface-border bg-surface py-20 sm:py-24">
+          <Container>
+            <SectionHeading eyebrow="Leadership" title="The Team" />
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {TEAM.map((member) => (
+                <div key={member.name} className="rounded-xl border border-surface-border bg-surface-subtle p-5">
+                  <p className="text-[15px] font-semibold text-ink-900">{member.name}</p>
+                  <p className="mt-0.5 text-[13px] text-ink-400">{member.role}</p>
+                  <p className="mt-3 text-[13.5px] leading-relaxed text-ink-600">{member.bio}</p>
+                  {member.profileUrl && (
+                    <a
+                      href={member.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-block text-[13px] font-medium text-brand-600 hover:underline"
+                    >
+                      Profile
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {ADVISORS.length > 0 && (
+        <section className="border-b border-surface-border bg-surface-subtle py-20 sm:py-24">
+          <Container>
+            <SectionHeading eyebrow="Strategic Advisory" title="Research-led insight for real-world asset infrastructure" />
+            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-600">
+              Advisors contribute perspective on research and infrastructure. They do not run rwaShift or set its legal or compliance positions.
+            </p>
+            <div className="mt-10 grid grid-cols-1 gap-4 lg:grid-cols-2">
+              {ADVISORS.map((advisor) => (
+                <div key={advisor.name} className="rounded-xl border border-surface-border bg-surface p-6">
+                  <p className="text-[15px] font-semibold text-ink-900">{advisor.name}</p>
+                  <p className="mt-0.5 text-[13px] text-ink-400">{advisor.role}</p>
+                  <p className="mt-3 text-[13.5px] leading-relaxed text-ink-600">{advisor.bio}</p>
+                  {advisor.affiliation && (
+                    <p className="mt-3 text-[12.5px] leading-relaxed text-ink-400">{advisor.affiliation}</p>
+                  )}
+                  {advisor.profileUrl && (
+                    <a
+                      href={advisor.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 inline-block text-[13px] font-medium text-brand-600 hover:underline"
+                    >
+                      LinkedIn
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <CTASection
         title="Tokenizing a Real Estate Asset?"

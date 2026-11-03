@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { SITE_NAME, SITE_URL, TAGLINE, META_DESCRIPTION_DEFAULT } from "@/content/site";
+import { SITE_NAME, SITE_URL, SOCIAL_LINKS, TAGLINE, META_DESCRIPTION_DEFAULT } from "@/content/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -38,6 +38,8 @@ const organizationJsonLd = {
   description: META_DESCRIPTION_DEFAULT,
   slogan: TAGLINE,
   logo: `${SITE_URL}/icon.png`,
+  // Omitted entirely until social profile URLs are confirmed.
+  ...(SOCIAL_LINKS.length > 0 && { sameAs: SOCIAL_LINKS.map((link) => link.href) }),
 };
 
 const websiteJsonLd = {
