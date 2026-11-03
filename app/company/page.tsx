@@ -107,7 +107,7 @@ export default function CompanyPage() {
                           rel="noopener noreferrer"
                           className="mt-3 inline-block text-[13px] font-medium text-brand-600 hover:underline"
                         >
-                          LinkedIn
+                          Profile
                         </a>
                       )}
                     </div>
