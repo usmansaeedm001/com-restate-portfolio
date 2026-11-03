@@ -73,7 +73,7 @@ export default function CompanyPage() {
       {TEAM.length > 0 && (
         <section className="border-b border-surface-border bg-surface py-20 sm:py-24">
           <Container>
-            <SectionHeading eyebrow="Leadership" title="The Team" />
+            <p className="text-[13px] font-medium uppercase tracking-wider text-gold-700">Leadership</p>
             <div className="team-marquee mt-10 overflow-hidden py-4">
               <div className="team-track">
                 {/* Two copies so the loop is seamless; the second copy is inert and hidden from assistive tech. */}
