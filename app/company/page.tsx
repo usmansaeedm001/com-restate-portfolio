@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageHero } from "@/components/sections/page-hero";
 import { SectionHeading } from "@/components/sections/section-heading";
 import { CTASection } from "@/components/sections/cta-section";
@@ -76,27 +77,33 @@ export default function CompanyPage() {
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-600">
               Advisors contribute perspective on research and infrastructure. They do not run rwaShift or set its legal or compliance positions.
             </p>
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {TEAM.map((member) => (
-                <div key={member.name} className="rounded-2xl border border-surface-border bg-surface p-6 shadow-lg shadow-ink-900/10 transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-                  <p className="text-[15px] font-semibold text-ink-900">{member.name}</p>
-                  <p className="mt-0.5 text-[13px] text-ink-400">{member.role}</p>
-                  <p className="mt-3 text-[13.5px] leading-relaxed text-ink-600">{member.bio}</p>
-                  {member.affiliation && (
-                    <p className="mt-3 text-[12.5px] leading-relaxed text-ink-400">{member.affiliation}</p>
-                  )}
-                  {member.profileUrl && (
-                    <a
-                      href={member.profileUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-3 inline-block text-[13px] font-medium text-brand-600 hover:underline"
+            <div className="team-marquee mt-10 overflow-hidden py-4">
+              <div className="team-track">
+                {/* Two copies so the loop is seamless; the second copy is inert and hidden from assistive tech. */}
+                {[...TEAM, ...TEAM].map((member, i) => {
+                  const isCopy = i >= TEAM.length;
+                  return (
+                    <div
+                      key={`${member.name}-${i}`}
+                      aria-hidden={isCopy || undefined}
+                      inert={isCopy}
+                      className="mr-4 w-[300px] shrink-0 rounded-2xl border border-surface-border bg-surface p-6 shadow-lg shadow-ink-900/10 transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                     >
-                      Profile
-                    </a>
-                  )}
-                </div>
-              ))}
+                      {member.photo && (
+                        <Image
+                          src={member.photo}
+                          alt={`Photo of ${member.name}`}
+                          width={100}
+                          height={100}
+                          className="mb-4 h-20 w-20 rounded-full object-cover"
+                        />
+                      )}
+                      <p className="text-[15px] font-semibold text-ink-900">{member.name}</p>
+                      <p className="mt-0.5 text-[13px] text-ink-400">{member.role}</p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </Container>
         </section>

@@ -81,3 +81,29 @@ body {
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
+
+/* Team cards drift left to right in a continuous loop. The track holds two copies so the loop is seamless. */
+@keyframes team-drift {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.team-track {
+  display: flex;
+  width: max-content;
+  animation: team-drift 40s linear infinite;
+}
+
+.team-marquee:hover .team-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-track {
+    animation: none;
+  }
+}

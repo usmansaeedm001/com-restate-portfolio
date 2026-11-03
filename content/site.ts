@@ -14,7 +14,6 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: "Product", href: "/product" },
   { label: "Technology", href: "/technology" },
   { label: "Insights", href: "/insights" },
-  { label: "Company", href: "/company" },
 ];
 
 export const FOOTER_NAV: { title: string; items: NavItem[] }[] = [
@@ -24,7 +23,6 @@ export const FOOTER_NAV: { title: string; items: NavItem[] }[] = [
       { label: "Product", href: "/product" },
       { label: "Technology", href: "/technology" },
       { label: "Insights", href: "/insights" },
-      { label: "Company", href: "/company" },
     ],
   },
   {
@@ -69,17 +67,21 @@ export type TeamMember = {
   affiliation?: string;
   profileUrl?: string;
   isAdvisor?: boolean;
+  // Photo in public/team/. Shown on the card in a circle.
+  photo?: string;
 };
 export const TEAM: TeamMember[] = [
   {
     name: "Muhammad Usman Saeed",
     role: "Founder",
+    photo: "/team/usman-saeed.jpg",
     bio: "Works on RWA tokenization for real estate, private credit and invoice finance, focused on connecting each asset's legal structure, investor rights, compliance and ownership to the token.",
     profileUrl: "https://www.linkedin.com/in/muhammad-usman-saeed-3b5227b5/",
   },
   {
     name: "Dr. Usman Nazir",
     role: "Strategic Advisor — AI & Real-World Asset Intelligence",
+    photo: "/team/usman-nazir.jpg",
     bio: "Postdoctoral Data Scientist in Climate and Health Analytics. Research covers geospatial analytics, satellite data and environmental monitoring. The advisory focus is exploring how data-driven analysis can support physical-asset assessment and ongoing asset monitoring. This is an area of exploration, not a current rwaShift product feature.",
     affiliation: "University of Oxford. Shown for identification only; this is not an endorsement by the University.",
     profileUrl: "https://www.linkedin.com/in/unazir/",
@@ -88,6 +90,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Usman Ali Maan",
     role: "Strategic Advisor — Cloud Infrastructure & Platform Resilience",
+    photo: "/team/usman-ali-maan.jpg",
     bio: "Cloud infrastructure and DevSecOps professional with over 10 years of experience in cloud architecture, infrastructure automation and platform reliability. The advisory focus is guidance on scalable cloud architecture, infrastructure security, operational resilience and reliable deployment practices for real-world asset tokenization infrastructure.",
     affiliation: "Currently at RazeSteer.",
     profileUrl: "https://www.linkedin.com/in/usmanalimaan/",
@@ -96,6 +99,7 @@ export const TEAM: TeamMember[] = [
   {
     name: "Muhammad Saud Saeed",
     role: "Strategic Advisor — Applied AI & Intelligent Automation",
+    photo: "/team/saud-saeed.jpg",
     bio: "AI and software engineering professional specializing in agentic AI, intelligent automation and production-ready AI systems. Experience spans large language models, multi-agent architectures, workflow automation, backend engineering and cloud-native AI deployments. The advisory focus is applying AI within real-world asset infrastructure, including document processing, workflow orchestration and integration with existing enterprise systems.",
     affiliation: "Currently at DevsConsilium.",
     profileUrl: "https://www.linkedin.com/in/muhammadsaudsaeed/",
