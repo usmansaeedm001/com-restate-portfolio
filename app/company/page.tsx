@@ -100,6 +100,16 @@ export default function CompanyPage() {
                       )}
                       <p className="text-[15px] font-semibold text-ink-900">{member.name}</p>
                       <p className="mt-0.5 text-[13px] text-ink-400">{member.role}</p>
+                      {member.profileUrl && (
+                        <a
+                          href={member.profileUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-block text-[13px] font-medium text-brand-600 hover:underline"
+                        >
+                          LinkedIn
+                        </a>
+                      )}
                     </div>
                   );
                 })}
