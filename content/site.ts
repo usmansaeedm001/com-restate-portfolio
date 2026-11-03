@@ -14,6 +14,7 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: "Product", href: "/product" },
   { label: "Technology", href: "/technology" },
   { label: "Insights", href: "/insights" },
+  { label: "Company", href: "/company" },
 ];
 
 export const FOOTER_NAV: { title: string; items: NavItem[] }[] = [
@@ -23,6 +24,7 @@ export const FOOTER_NAV: { title: string; items: NavItem[] }[] = [
       { label: "Product", href: "/product" },
       { label: "Technology", href: "/technology" },
       { label: "Insights", href: "/insights" },
+      { label: "Company", href: "/company" },
     ],
   },
   {
