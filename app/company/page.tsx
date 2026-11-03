@@ -74,9 +74,6 @@ export default function CompanyPage() {
         <section className="border-b border-surface-border bg-surface py-20 sm:py-24">
           <Container>
             <SectionHeading eyebrow="Leadership" title="The Team" />
-            <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-600">
-              Advisors contribute perspective on research and infrastructure. They do not run rwaShift or set its legal or compliance positions.
-            </p>
             <div className="team-marquee mt-10 overflow-hidden py-4">
               <div className="team-track">
                 {/* Two copies so the loop is seamless; the second copy is inert and hidden from assistive tech. */}
